@@ -4,11 +4,12 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class serveurMT extends Thread {
+public class ServeurMT extends Thread {
 
     private int nombreClient;
     public static void main(String[] args){
-        new serveurMT().start();
+
+        new ServeurMT().start();
     }
 
     @Override
@@ -47,6 +48,7 @@ public class serveurMT extends Thread {
                 pw.println("Bienvenue vous etes le client numero "+numeroClient);
                 while (true){
                     String req = br.readLine();
+                    System.out.println("Le client "+ IP + " a envoyé une requete "+ req);
                     pw.println(req.length());
                 }
 
